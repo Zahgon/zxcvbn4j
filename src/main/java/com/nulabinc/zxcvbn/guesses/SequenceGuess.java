@@ -9,31 +9,26 @@ import java.util.regex.Pattern;
 
 public class SequenceGuess extends BaseGuess {
 
-  private static final Set<Character> START_POINTS =
-      new HashSet<>(Arrays.asList('a', 'A', 'z', 'Z', '0', '1', '9'));
-  private static final Pattern DIGIT_PATTERN = Pattern.compile("\\d");
+    private static final Set<Character> START_POINTS = new HashSet<>(Arrays.asList('a', 'A', 'z', 'Z', '0', '1', '9'));
 
-  public SequenceGuess(final Context context) {
-    super(context);
-  }
+    private static final Pattern DIGIT_PATTERN = Pattern.compile("\\d");
 
-  @Override
-  public double exec(Match match) {
-    final char firstChar = match.token.charAt(0);
-    double baseGuesses = determineBaseGuesses(firstChar);
-    if (!match.ascending) {
-      baseGuesses *= 2;
+    public SequenceGuess(final Context context) {
+        super(context);
     }
-    return baseGuesses * match.tokenLength();
-  }
 
-  private double determineBaseGuesses(char firstChar) {
-    if (START_POINTS.contains(firstChar)) {
-      return 4;
-    } else if (DIGIT_PATTERN.matcher(String.valueOf(firstChar)).find()) {
-      return 10;
-    } else {
-      return 26;
+    @Override
+    public double exec(Match match) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-  }
+
+    private double determineBaseGuesses(char firstChar) {
+        if (START_POINTS.contains(firstChar)) {
+            return 4;
+        } else if (DIGIT_PATTERN.matcher(String.valueOf(firstChar)).find()) {
+            return 10;
+        } else {
+            return 26;
+        }
+    }
 }

@@ -6,37 +6,38 @@ import java.util.Map;
 
 public class Dictionary {
 
-  private final String name;
+    private final String name;
 
-  private final List<String> frequencies;
+    private final List<String> frequencies;
 
-  private final Map<String, Integer> rankedDictionary;
+    private final Map<String, Integer> rankedDictionary;
 
-  public Dictionary(String name, List<String> frequencies) {
-    this.name = name;
-    this.frequencies = frequencies;
-    this.rankedDictionary = toRankedDictionary(frequencies);
-  }
-
-  private Map<String, Integer> toRankedDictionary(final List<String> frequencies) {
-    Map<String, Integer> result = new HashMap<>();
-    int i = 1; // rank starts at 1, not 0
-    for (String word : frequencies) {
-      result.put(word, i);
-      i++;
+    public Dictionary(String name, List<String> frequencies) {
+        this.name = name;
+        this.frequencies = frequencies;
+        this.rankedDictionary = toRankedDictionary(frequencies);
     }
-    return result;
-  }
 
-  public String getName() {
-    return name;
-  }
+    private Map<String, Integer> toRankedDictionary(final List<String> frequencies) {
+        Map<String, Integer> result = new HashMap<>();
+        // rank starts at 1, not 0
+        int i = 1;
+        for (String word : frequencies) {
+            result.put(word, i);
+            i++;
+        }
+        return result;
+    }
 
-  public List<String> getFrequencies() {
-    return frequencies;
-  }
+    public String getName() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-  public Map<String, Integer> getRankedDictionary() {
-    return rankedDictionary;
-  }
+    public List<String> getFrequencies() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    public Map<String, Integer> getRankedDictionary() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

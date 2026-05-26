@@ -6,19 +6,20 @@ import java.util.List;
 
 public class MatchSequence {
 
-  private final List<Match> sequence;
-  private final double guesses;
+    private final List<Match> sequence;
 
-  public MatchSequence(List<Match> sequence, double guesses) {
-    this.sequence = Collections.unmodifiableList(sequence);
-    this.guesses = guesses;
-  }
+    private final double guesses;
 
-  public List<Match> getSequence() {
-    return sequence;
-  }
+    public MatchSequence(List<Match> sequence, double guesses) {
+        this.sequence = Collections.unmodifiableList(sequence);
+        this.guesses = guesses;
+    }
 
-  public double getGuesses() {
-    return guesses;
-  }
+    public List<Match> getSequence() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    public double getGuesses() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

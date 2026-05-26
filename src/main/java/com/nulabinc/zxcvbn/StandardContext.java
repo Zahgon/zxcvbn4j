@@ -8,21 +8,11 @@ import java.util.Map;
 
 class StandardContext {
 
-  private StandardContext() {
-    throw new IllegalStateException("StandardContext should not be instantiated");
-  }
-
-  static Context build() throws IOException {
-    Map<String, Dictionary> dictionaryMap = new LinkedHashMap<>();
-    for (Dictionary dictionary : StandardDictionaries.loadAllDictionaries()) {
-      dictionaryMap.put(dictionary.getName(), dictionary);
+    private StandardContext() {
+        throw new IllegalStateException("StandardContext should not be instantiated");
     }
 
-    Map<String, Keyboard> keyboardMap = new LinkedHashMap<>();
-    for (Keyboard keyboard : StandardKeyboards.loadAllKeyboards()) {
-      keyboardMap.put(keyboard.getName(), keyboard);
+    static Context build() throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-    return new Context(dictionaryMap, keyboardMap);
-  }
 }
